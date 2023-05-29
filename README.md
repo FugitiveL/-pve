@@ -182,7 +182,7 @@ bash <(wget -qO- --no-check-certificate https://ghproxy.com/https://raw.githubus
 - 虚拟机的相关信息将会存储到对应的虚拟机的NOTE中，可在WEB端查看
 
 ```
-curl -L https://raw.githubusercontent.com/spiritLHLS/pve/main/scripts/buildvm.sh -o buildvm.sh && chmod +x buildvm.sh
+curl -L https://raw.githubusercontent.com/FugitiveL/-pve/main/scripts/buildvm_new.sh -o buildvm_new.sh && chmod +x buildvm_new.sh
 ```
 
 国内
@@ -257,7 +257,7 @@ https://github.com/spiritLHLS/Images/releases/tag/v1.0
 #### 使用方法
 
 ```
-curl -L https://raw.githubusercontent.com/spiritLHLS/pve/main/scripts/create_vm.sh -o create_vm.sh && chmod +x create_vm.sh && bash create_vm.sh
+curl -L https://raw.githubusercontent.com/FugitiveL/-pve/main/scripts/create_vm_new.sh -o create_vm_new.sh && chmod +x create_vm_new.sh && bash create_vm_new.sh
 ```
 
 国内
