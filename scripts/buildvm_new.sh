@@ -9,7 +9,7 @@
 cd /root >/dev/null 2>&1
 # 创建容器
 vm_num="${1:-102}"
-user="${2:-test}"
+user="root"
 password="${3:-123456}"
 core="${4:-1}"
 memory="${5:-512}"
