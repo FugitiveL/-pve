@@ -65,7 +65,7 @@ check_info(){
       done < "$log_file"
       last_line_array=($last_line)
       vm_num="${last_line_array[0]}"
-      user="${last_line_array[1]}"
+    #  user="${last_line_array[1]}"
       password="${last_line_array[2]}"
       ssh_port="${last_line_array[6]}"
       web1_port="${last_line_array[7]}"
@@ -158,7 +158,7 @@ build_new_vms() {
 
     for ((i=1; i<=$new_nums; i++)); do
         vm_num=$(($vm_num + 1))
-        user=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 4 | head -n 1)
+       # user=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 4 | head -n 1)
         ori=$(date | md5sum)
         password=${ori: 2: 9}
         ssh_port=$(($web2_port + 1))
@@ -166,7 +166,7 @@ build_new_vms() {
         web2_port=$(($web1_port + 1))
         port_start=$(($port_end + 1))
         port_end=$(($port_start + 25))
-        ./buildvm_new.sh $vm_num $user $password $cpu_nums $memory_nums $disk_nums $ssh_port $web1_port $web2_port $port_start $port_end $system $disk_choice
+        ./buildvm_new.sh $vm_num root $password $cpu_nums $memory_nums $disk_nums $ssh_port $web1_port $web2_port $port_start $port_end $system $disk_choice
         cat "vm$vm_num" >> vmlog
         rm -rf "vm$vm_num"
         sleep 60
