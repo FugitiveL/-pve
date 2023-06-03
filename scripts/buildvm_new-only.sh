@@ -98,7 +98,7 @@ else
   num=$((first_digit - 2))$second_digit$third_digit
 fi
 
-qm create $vm_num --agent 1 --scsihw virtio-scsi-single --serial0 socket --cores $core --sockets 1 --cpu host --net0 virtio,bridge=vmbr1,firewall=0
+qm create $vm_num --agent 1 --scsihw virtio-scsi-single --serial0 socket --cores $core --sockets 1 --cpu host --net0 virtio,bridge=vmbr0,firewall=0
 qm importdisk $vm_num /root/qcow/${system}.qcow2 $disk_choose
 qm set $vm_num --scsihw virtio-scsi-pci --scsi0 $disk_choose:${vm_num}/vm-${vm_num}-disk-0.raw
 qm set $vm_num --bootdisk scsi0
@@ -108,8 +108,8 @@ qm set $vm_num --memory $memory
 qm set $vm_num --ide2 local:cloudinit
 qm set $vm_num --nameserver 8.8.8.8
 qm set $vm_num --searchdomain 8.8.4.4
-user_ip="172.16.1.${num}"
-qm set $vm_num --ipconfig0 ip=${user_ip}/24,gw=172.16.1.1
+user_ip="107.150.41.163"
+qm set $vm_num --ipconfig0 ip=${user_ip}/29,gw=107.150.41.161
 qm set $vm_num --cipassword $password --ciuser $user
 # qm set $vm_num --agent 1
 qm resize $vm_num scsi0 ${disk}G
